@@ -31,7 +31,7 @@ The final project for "Internet of Things 52104S-3006" course at University of O
 * Install [Raspberry Pi Imager](https://www.raspberrypi.com/software/) or other similar programs such as [Rufus](https://rufus.ie/en/) to fomat Raspberry Pi
 * Install a bootable Raspbian OS with the appropriate LabVIEW version preinstalled
 * Reinsert the memory to PC and look for a file named cmdline open it with a text editor such as Notepad plus and add the following at the end of string. It gives an static IP to the Raspberry Pi:
-  ip=192.168.1.99::192.168.1.50:255.255.255.0:rpi:eth0:off
+  `ip=192.168.1.99::192.168.1.50:255.255.255.0:rpi:eth0:off`
   in which 192.168.1.99 is the configured static IP address for raspberry Pi and 192.168.1.50 is the IP address which Raspberry Pi expects as a connecting device (for example your PC) as gateway
 
 **Note**: if you are using Compute Raspberry Pi models, you will need rpiboot tool which is installed with Raspberry Pi imager
