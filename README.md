@@ -3,11 +3,16 @@ The final project for "Internet of Things 52104S-3006" course at University of O
 
 ## Devices
 * Raspberry Pi 3
-* Raspberry Pi Pico
+* Raspberry Pi Pico W
 * Raspberry Pi camera module
 * RS-485 CAN HAT for Raspberry Pi 3
 * Pico- 2CH-RS485 Hat for raspberry pi pico
 * compatible 4G/5G USB dongle with Raspbian OS
+* Magnetic door switch
+* LED and 10k resistor
+* DB9 cable
+* BMP 280
+* HC_SR04
 ## Dependencies
 
 * LabVIEW 2024 Q3 with the following packages and toolkits:
@@ -39,3 +44,19 @@ The final project for "Internet of Things 52104S-3006" course at University of O
 * Install camera stack with `sudo apt install -y libcamera-apps libcamera-dev`
 * Install Opencv with `sudo apt install -y libopencv-dev`
 * [Download the MobileNet-SSD model](https://github.com/nikmart/pi-object-detection)
+* compile the cpp file `g++ -o udp_person_counter udp_person_counter.cpp $(pkg-config --cflags --libs opencv4)`
+* To make the execute file running on background as start up you can use `udp_person_counter.service`
+* To create an automatic SSH tunnel to the server use `reverse-ssh-tunnel.service` but we also need to create SSH key and copy it to your private server (we use the SSH tunnel to transfer captured images)
+* Use the following commands to activate these services:
+  * `sudo systemctl daemon-reload`
+  * `sudo systemctl enable udp_person_counter.service`
+  * `sudo systemctl enable reverse-ssh-tunnel.service`
+  * `sudo systemctl start udp_person_counter.service`
+  * `sudo systemctl start reverse-ssh-tunnel.service`
+* To deploy LabVIEW vi as startup you need to open IoT project right click on build specification -> new -> Real-Time Application
+  * in **Source File Section** choose main_v6.vi as startup VI click on build buttom
+  * then you can deploy it
+## Pico Configuration:
+* Setup MicroPython on Raspberry Pi Pico W
+* create main.py and use the given main.py script
+
