@@ -1,0 +1,18 @@
+[Unit]
+Description=HiveMQ CE Broker
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/broker/hivemq-ce-2024.9
+# Use the Java from your custom location
+Environment="JAVA_HOME=/root/broker/Java"
+ExecStart=/root/broker/hivemq-ce-2024.9/bin/run.sh
+Restart=on-failure
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
