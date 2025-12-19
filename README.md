@@ -75,3 +75,20 @@ The final project for "Internet of Things 52104S-3006" course at University of O
 * on Raspberry Pi 3 use these pins:
    * Pin 6 -> DB9 pin 5
    * Pin 13 and 9 -> to LED and resistors in series
+ ## Private server configuration:
+For this project Ubuntu 22 was installed in the private server
+* install Hive MQTT broker:
+  * `sudo apt update`
+  * `sudo apt install git`
+  * `mkdir broker && cd broker`
+  * Download [HiveMQ broker](https://github.com/hivemq/hivemq-community-edition/releases)
+  * 'curl -L -o hivemq-ce-2024.9.zip https://github.com/hivemq/hivemq-community-edition/releases/download/2024.9/hivemq-ce-2024.9.zip'
+  * `sudo apt update && sudo apt install unzip`
+  * `unzip hivemq-ce-2024.9.zip`
+  * Download [Java Development Kit](https://www.oracle.com/java/technologies/javase/jdk23-archive-downloads.html)
+  * 'cd Java/'
+  * `sudo dpkg -i jdk-23_linux-x64_bin.deb`
+  * `./hivemq-ce-2024.9/bin/run.sh`
+  * To make this .sh run in background, make a systemd service:
+  * ` sudo nano /etc/systemd/system/hivemq.service`
+    
